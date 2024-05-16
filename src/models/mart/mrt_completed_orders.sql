@@ -24,7 +24,7 @@ SELECT
 	pay.amount_total,
 	ord.fulfillment_method,
 	ord.service_station,
-	exo."system_distance" AS distance,
+	exo."system_distance",
 	pay.payment_id,
 	pay.payment_method,
 	cus.customer_id,
@@ -46,6 +46,5 @@ LEFT JOIN stg_exoplanets AS exo
 WHERE
 	TRUE
 	AND ord.order_status = 'ACCEPTED'
-	AND pay.payment_status = 'ACCEPTED'
 
 ORDER BY ord.order_received DESC
